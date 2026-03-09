@@ -37,6 +37,17 @@ h1{
     font-size: 40px;
    padding-top: 40px;
 }
+.dropdown-menu{
+    display: none;
+    position: absolute;
+}
+.dropdown:hover .dropdown-menu{
+    display: block;
+}
+.dropdown-menu li{
+    list-style: none;
+    color: white;
+}
 .search-bar{
     display: flex;
     align-items: center;
