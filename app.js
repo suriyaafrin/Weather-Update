@@ -4,14 +4,15 @@ const sec = document.querySelector(".sec");
 const sec_1 = document.querySelector(".sec_1");
 const units = document.querySelector(".units");
 const weather_img = document.querySelector(".weather_img");
-const demo = document.getElementById("demo");
-const demo2 = document.getElementById("demo2");
+const menu1 = document.getElementById("menu1");
+const menu2 = document.getElementById("menu2");
 async function showWeather(city) {
     const reponse = await fetch(apiUrl + city + `&appid=${apiKey}`);
     var data = await reponse.json();
     console.log(data);
+    let tempShowType=Math.round(data.main.temp - 273.15);
     document.querySelector(".left-part h4").innerHTML = data.name;
-    document.querySelector(".right-part p").innerHTML = Math.round(data.main.temp - 273.15) + "° c";
+    document.querySelector(".right-part p").innerHTML = tempShowType + "° c";
     document.querySelector(".feels p:last-child").innerHTML = Math.round(data.main.feels_like - 273.15) + "° c";
     document.querySelector(".humidity p:last-child").innerHTML = data.main.humidity + "%";
     document.querySelector(".wind p:last-child").innerHTML = data.wind.speed + "km/h";
@@ -33,13 +34,14 @@ async function showWeather(city) {
     else if (data.weather[0].main == "Sunny") {
         weather_img.src = "https://cdn-icons-png.flaticon.com/128/869/869869.png";
     }
-demo.addEventListener("click", () => {
-    document.querySelector(".right-part p").innerHTML = Math.round(data.main.temp) + "K";
-    showWeather(sec.value);
+menu1.addEventListener("click", () => {
+    tempShowType=Math.round(data.main.temp);
+    document.querySelector(".right-part p").innerHTML = tempShowType + "K";
 })
-demo2.addEventListener("click", () => {
-    document.querySelector(".right-part p").innerHTML = Math.round((data.main.temp - 273.15) * 9 / 5 + 32) + "°F";
-    showWeather(sec.value);
+menu2.addEventListener("click", () => {
+    tempShowType=Math.round((data.main.temp - 273.15) * 9 / 5 + 32);
+    document.querySelector(".right-part p").innerHTML =tempShowType  + "°F";
+   
 })
 }
 
