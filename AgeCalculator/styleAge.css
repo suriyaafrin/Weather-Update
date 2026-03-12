@@ -1,0 +1,41 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+}
+.all{
+    padding: 50px;
+    border: 2px solid black;
+    height: 400px;
+    width: 40%;
+    border-radius:20px 20px 120px 20px;
+    background-color: rgb(254, 239, 239);
+   
+}
+.calculator{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:20px;
+}
+.calculator input{
+    height: 40px;
+    width: 70%;
+}
+
+.line{
+    padding: 30px;
+}
+.line button{
+    border-radius: 50%;
+    border: none;
+}
+.line img{
+    height: 60px;
+    width: 60px;
+}
